@@ -1,0 +1,17 @@
+h2{
+    color: aliceblue;
+    
+}
+p.rtl {
+    direction: rtl;
+  }
+h1.rtl{
+    direction: rtl;
+  }
+h2.rtl{
+    direction: rtl;
+}
+.slider{
+    width: 100%;
+    height: 450%;
+}

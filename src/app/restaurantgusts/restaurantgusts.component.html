@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="he">
+
+
+<head>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link href="restaurantgusts.component.css" rel="stylesheet">
+
+</head>
+
+<script>
+
+    const COLOR_CODES = {
+        info: {
+            color: "green"
+        },
+        warning: {
+            color: "orange",
+            threshold: WARNING_THRESHOLD
+        },
+        alert: {
+            color: "red",
+            threshold: ALERT_THRESHOLD
+        }
+    };
+
+</script>
+
+
+
+
+<body>
+    <div class="loading_page" *ngIf="loader">
+
+    </div>
+
+    <main id="page-main">
+
+            <div [style.visibility]="(loader == true) ? 'hidden' : 'visible' ">
+
+                <div class="card">
+
+
+                    <select class="form-control" #selectedLang (change)="switchLanguage(selectedLang.value)">
+
+                        <option *ngFor="let language of translate.getLangs()" [value]="language"
+                            [selected]="language == translate.currentLang">
+
+                            {{language}}
+
+                        </option>
+                    </select>
+
+
+
+                    <img class="card__logo" src="{{this.logosrc}} ">
+
+                    <div class="card__text h1" style="display:block">
+                        <h1><span>
+                                {{'אנא בחר/י את סוג השירות'|translate
+                                }}
+                            </span> </h1>
+
+                    </div>
+
+
+                    <div class="card_menu">
+                        <!-- <div [style.visibility]="(token_valid == false) ? 'hidden' : 'visible' "> -->
+                        <div [style.visibility]="(loader == true) ? 'hidden' : 'visible' ">
+
+
+
+
+                            <a href="{{this.menusrc}}" class="menu"><span>
+                                    {{'תפריט'|translate
+                                    }}
+                                </span></a>
+                        </div>
+                        <!-- </div> -->
+                    </div>
+
+
+                    <div class="card__buttons card__block">
+
+                        <div [style.visibility]="(token_valid == false) ? 'hidden' : 'visible' ">
+                            <div [style.visibility]="(loader == true) ? 'hidden' : 'visible' ">
+
+
+                                <button type="button" class="card_button" (click)="CallService()"><span>
+                                        {{'שירות'|translate
+                                        }}
+                                    </span></button>
+                                <button type="button" class="card_button" (click)="CallBill()"><span>
+                                        {{'חשבון'|translate
+                                        }}
+                                    </span></button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="card__question card__block" style="display: none">
+                        <h3><span>
+                                {{'? האם קיבלת שירות'|translate
+                                }}
+                            </span></h3>
+                        <div class="card__question-buttons">
+
+                            <button type="button" class="card_button" (click)="lastpage()"><span>
+                                    {{'כן'|translate
+                                    }}
+                                </span></button>
+                            <button type="button" class="card_button" (click)="CallService()"><span>
+                                    {{'לא'|translate
+                                    }}
+                                </span></button>
+
+                        </div>
+                    </div>
+
+                <div class="card__timer card__block" style="display:none">
+                    <div class = "wait_style">
+                        <div class="card_text">
+                            <h3><span>
+                                    {{'קיבלנו את הקריאה, מיד תקבלו את השירות המבוקש'|translate
+                                    }}
+                                </span></h3>
+                        <div class = "wait_animation">
+
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class ="Footer">
+                    <div class="logo_buttom">
+                        <img class="card__bottom_logo" src="assets\images\servicio.png" alt="" *ngIf="!loader">
+                    </div>
+
+                    <div class="card__bottom" *ngIf="!loader">
+                        <p><span>
+                                {{'כל הזכויות שמורות'|translate
+                                }}
+                            </span></p>
+                    </div>
+
+                </div>
+                </div>
+
+            </div>
+
+
+
+    </main>
+
+
+
+</body>
+
+
+</html>

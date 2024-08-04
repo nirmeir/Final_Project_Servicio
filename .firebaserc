@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "servicio-system"
+  },
+  "targets": {
+    "servicio-system": {
+      "hosting": {
+        "RestaurantApp": [
+          "servicio-system"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html leng="en">
+    
+        <body>
+            <style>
+                .vl {
+                border: 3px solid rgb(254, 254, 254);
+                height: 300px;
+                }
+            </style>
+
+            <div class="row itemsBlock">
+                <div *ngFor=" let tbl of tables" class="col-md-6 ">
+
+                
+                    <div class="vl">
+                    
+                        <h2><span class="tbl">{{tbl.table_id}}</span></h2>
+                        <h2><span class="tbl">{{tbl.call_type}}</span></h2> 
+                    </div>
+
+                </div>
+            
+            </div>
+
+        </body>
+</html>
